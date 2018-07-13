@@ -1,5 +1,4 @@
-// Initialize Firebase
-let config = {
+var config = {
   apiKey: "AIzaSyDPFSqdmCoZbkJKY98XH2wz5D6VBJK-gBc",
   authDomain: "autenticacion-red-social-7c11b.firebaseapp.com",
   databaseURL: "https://autenticacion-red-social-7c11b.firebaseio.com",
@@ -14,11 +13,17 @@ window.onload = () => {
     if (user) {
       loggedIn.style.display = "block"
       username.innerText = user.email
-      console.log(user.displayName)
+      console.log(user)
+      /* const newUser = firebase.database().ref().child("users").push().key; //key permite que se generen llaves nuevas para guardar los gifs 
+      firebase.database().ref(`users/${newUser}`).set({
+        userURL: user.photoURL,
+        userName: user.displayName || //Si esto está null o undefined, sigue con la opción que le sigue "||"
+          user.providerData[0].email,
+      }); */
     } else {
      loggedIn.style.display = "none"
     }
-    console.log("user is" + JSON.stringify(user))
+  //  console.log("user is" + JSON.stringify(user))
   });
 }
 // Registro
@@ -56,6 +61,7 @@ firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
 function logoutWithFireBase() {
   firebase.auth().signOut()
     .then(() => {
+
       console.log('usuario finalizo su sesion')
     })
     .catch();
@@ -91,3 +97,31 @@ function googleLoginwithFireBase() {
     let credential = error.credential;
   });
 }
+
+/*
+ var admin = require("firebase-admin");
+var serviceAccount = require("./serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://autenticacion-red-social-7c11b.firebaseio.com"
+}); 
+
+ function listAllUsers(nextPageToken) {
+  // List batch of users, 1000 at a time.
+  admin.auth().listUsers(1000, nextPageToken)
+    .then(function(listUsersResult) {
+      listUsersResult.users.forEach(function(userRecord) {
+        console.log("user", userRecord.toJSON());
+      });
+      if (listUsersResult.pageToken) {
+        // List next batch of users.
+        listAllUsers(listUsersResult.pageToken)
+      }
+    })
+    .catch(function(error) {
+      console.log("Error listing users:", error);
+    });
+}
+// Start listing users from the beginning, 1000 at a time.
+//listAllUsers(); */

@@ -1,1 +1,12 @@
-entry not found: /css/style.css
+.pd {
+    margin: 3% 0;
+}
+
+.inline {
+    display: inline-block;
+}
+
+#message {
+    background: #dff7e9;
+    padding: 10px;
+}
