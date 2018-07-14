@@ -54,3 +54,8 @@ input{
 .center{
     text-align: center
 }
+.fa-edit{
+   
+    color: #918a8a;
+    float: right;
+}

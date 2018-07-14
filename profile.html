@@ -20,7 +20,10 @@
         <div class="row">
 
             <div class="col-11 col-md-4 mx-auto profile">
-                <button onclick="showProfile()">ver perfil</button>
+                <div id="loggedIn">
+                    <p id="username"></p>
+                    <input id="logout" type="button" class="btn btn-secondary inline" value="LOGOUT" onclick="logoutWithFireBase()">
+                </div>
                 <div class="row">
                     <div class="col-12 center">
                         <div id="photo" class="center"></div>
@@ -31,8 +34,11 @@
                 <div class="row">
                     <div class="col-12 mx-auto profile-data">
                         <i class="far fa-user-circle"></i>
-                        <input id="rol">
-                        </input>
+                        <input id="rol" disabled></input>
+                        <i class="far fa-edit" id="enabledRol"></i>
+
+
+
                     </div>
                 </div>
                 <div class="row">
@@ -44,7 +50,9 @@
                 <div class="row">
                     <div class="col-12 mx-auto profile-data">
                         <i class="fas fa-globe-americas"></i>
-                        <input id="country">
+                        <input id="country" disabled></input>
+                        <i class="far fa-edit" id="enabledCountry"></i>
+
                     </div>
                 </div>
             </div>
