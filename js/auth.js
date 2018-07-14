@@ -7,7 +7,7 @@ var config = {
   messagingSenderId: "953460336958"
 };
 firebase.initializeApp(config);
-//verificar si el usuario esta conectado
+
 window.onload = () => {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -18,7 +18,6 @@ window.onload = () => {
     } else {
      loggedIn.style.display = "none"
     }
-  //  console.log("user is" + JSON.stringify(user))
   });
 }
 // Registro
@@ -30,6 +29,7 @@ function registerWithFirebase() {
   firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
     .then(() => {
       console.log('usuario creado con exito')
+      redirectFromLogin()
     })
     .catch((error) => {
       console.log('error de firebase > codigo ' + error.message)
@@ -45,6 +45,7 @@ function loginWithFirebase() {
 firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
   .then((e) => {
     console.log('usuario inicio sesion con exito')
+    redirectFromLogin()
     document.getElementById('message').innerHTML = e.message
   })
   .catch((error) => {
@@ -56,7 +57,7 @@ firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
 function logoutWithFireBase() {
   firebase.auth().signOut()
     .then(() => {
-
+      location.href = "index.html";
       console.log('usuario finalizo su sesion')
     })
     .catch();
@@ -70,6 +71,7 @@ function facebookLoginwithFireBase() {
   firebase.auth().signInWithPopup(provider)
     .then(() => {
       console.log('login con facebook exitoso')
+      redirectFromLogin()
     })
     .catch((error) => {
       console.log('error de firebase > codigo ' + error.code)
@@ -85,10 +87,14 @@ function googleLoginwithFireBase() {
   firebase.auth().signInWithPopup(provider).then(function (result) {
     let token = result.credential.accessToken;
     let user = result.user;
+    redirectFromLogin()
   }).catch(function (error) {
     let errorCode = error.code;
     let errorMessage = error.message;
     let email = error.email;
     let credential = error.credential;
   });
+}
+function redirectFromLogin(){
+  location.href = "friends.html";
 }

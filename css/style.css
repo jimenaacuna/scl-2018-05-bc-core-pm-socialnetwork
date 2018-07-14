@@ -10,14 +10,31 @@
     background: #dff7e9;
     padding: 10px;
 }
-.profile-photo{
+
+.profile-photo {
     width: 80px;
     margin: 5px;
     float: left;
-    
 }
-.profile{
+
+.profile {
     background-color: #dff7e9;
     margin-bottom: 5px;
-    height: 90px;
+    padding: 15px;
+}
+
+.green-one {
+    background-color: #00CC66;
+    border: none;
+}
+
+.green-two {
+    background-color: #005D2F;
+    border: none;
+}
+.full{
+    width: 100%
+}
+.center{
+    text-align: center
 }
