@@ -7,9 +7,9 @@ showUsers = () => {
             usersContainer.innerHTML += `
                 <div class="row">
                 <div class="col-10 profile mx-auto">
-                <img class="profile-photo" src="${newUser.val().photoUrl}">
+                <img class="profile-photo-list" src="${newUser.val().photoUrl}">
                 </img><span>${newUser.val().displayName}</span>
-                <span>Nutricionista</span>
+                <span>${newUser.val().rol}</span>
                 <button class="btn-primary inline  green-one" onclick="addFriends('${newUser.key}', '${newUser.val().email}')">Agregar a mis amigos</button>
                 </div>
                 </div>
@@ -33,7 +33,7 @@ showFriends = () => {
                     usersContainer.innerHTML += `
                 <div class="row">
                 <div class="col-10 profile mx-auto">
-                <img class="profile-photo" src="${user.val().photoUrl}">
+                <img class="profile-photo-list" src="${user.val().photoUrl}">
                 </img><span>${user.val().displayName}</span>
                 <span>Nutricionista</span>
                 <button class="btn-primary inline green-one" onclick="deleteFriend('${user.key}')">Eliminar</button>

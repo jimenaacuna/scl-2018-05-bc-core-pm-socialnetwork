@@ -96,5 +96,5 @@ function googleLoginwithFireBase() {
   });
 }
 function redirectFromLogin(){
-  location.href = "friends.html";
+  location.href = "profile.html";
 }

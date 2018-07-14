@@ -8,6 +8,8 @@ exports.createUser = functions.auth.user().onCreate(user => {
     displayName: user.displayName || user.email || user.providerData[0].email,
     email: user.email || user.providerData[0].email,
     photoUrl: user.photoURL || userDefault,
+    rol: 'asigne su rol',
+    pais: 'asigne su pais'
   };
   admin.database().ref('users/' + user.uid).set(userObject);
 }); 
