@@ -1,23 +1,25 @@
 body {
-    background-color: #DEDEDE;
-    font-family: 'Signika Negative', sans-serif;
+    background-color: #D0F0C0;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
 }
 
-a {
+header span {
     color: #005D2F;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 
 /*-- Header --*/
 
 header {
-    background: #005D2F;
-    padding: 10px 0;
+    background: #fff;
+    padding: 8px 0;
+    font-size: 16px;
+    font-family: 'Goudy Bookletter 1911', sans-serif;
+}
+
+#title {
+    font-size: 20px;
 }
 
 header .logo img {
@@ -25,41 +27,149 @@ header .logo img {
     width: 30px;
 }
 
-
-/*-- Búsqueda -- */
-
-#search {
-    width: 100%;
-    background: white;
-    border: none;
-    font-size: 12px;
-    padding: 0 10px;
-    height: 25px;
-    border-radius: 3px 0 0 3px;
-    line-height: 25px;
-    font-family: 'Signika Negative', sans-serif;
-    color: #6d6d6d;
-}
-
-#btnSearch {
-    width: 100%;
-    background: white;
-    border: none;
-    font-size: 12px;
-    padding: 0 10px;
-    height: 25px;
-    border-radius: 0 3px 3px 0;
-    line-height: 25px;
-    cursor: pointer;
-    color: #6d6d6d;
-}
-
-#btnSearch:hover {
-    background: #005D2F;
-    color: white;
+header .profile a {
+    text-decoration: none;
 }
 
 
 /*-- Información perfil --*/
 
-#imgProfile {}
+nav .imgProfile {
+    border-radius: 3px 0px 3px 0px;
+}
+
+
+/*-- Main --*/
+
+main {
+    padding-top: 10px;
+}
+
+
+/*-- Menu lateral --*/
+
+main .barra-lateral-izquierda {
+    padding-bottom: 10px;
+    padding-left: 4px;
+}
+
+main .barra-lateral-izquierda nav {
+    border-bottom: 1px solid #c7c8ca;
+    padding-bottom: 15px;
+}
+
+main .barra-lateral-izquierda nav a {
+    display: block;
+    padding: 2px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+main .barra-lateral-izquierda nav a:hover {
+    background: #f2f2f2;
+    text-decoration: none;
+}
+
+main .barra-lateral-izquierda nav a i {
+    margin-right: 10px;
+}
+
+
+/*-- Contenido Principal -- */
+
+
+/*publicar*/
+
+main .contenido-principal .publicar {
+    margin-bottom: 20px;
+}
+
+main .contenido-principal .publicar .foto a {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 7px 7px 7px 7px;
+    margin-top: 20px;
+}
+
+main .contenido-principal .publicar .foto img {
+    width: 100%;
+}
+
+main .contenido-principal .publicar form textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100px;
+    max-height: 300px;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: #565656;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 35);
+}
+
+main .contenido-principal .publicar form .contenedor-botones {
+    padding: 10px 0;
+    border-bottom: 1px solid #c7c8ca;
+}
+
+main .contenedor-botones a {
+    color: #8d8d8d;
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+main .contenedor-botones a:hover {
+    color: #3d3d3d;
+}
+
+main .contenido-principal .publicar form input {
+    border: 1px solid #fff;
+    padding: 5px 30px;
+    font-size: 14px;
+    font-family: 'Signika Negative', sans-serif;
+    background: linear-gradient(to bottom, #005d2f, #50c068d5 100%);
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+main .contenido-principal .publicar form input:hover {
+    background: linear-gradient(to bottom, #50c068d5 #005d2f 100%);
+}
+
+
+/*--publicaciones*/
+
+main .publicacion {
+    margin-bottom: 40px;
+}
+
+main .publicacion .foto a {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 7px 7px 7px 7px;
+}
+
+main .publicacion .foto img {
+    width: 100%;
+}
+
+main .publicacion .nombre {
+    line-height: 16px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+main.publicacion .texto {
+    background: #fff;
+    color: #3d3c3c;
+    font-size:
+}
+
+
+/*--MEDIA QUERIES --*/

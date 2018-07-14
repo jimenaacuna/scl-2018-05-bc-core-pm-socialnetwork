@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911|Signika+Negative" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911|Signika+Negative|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Red Social Patitos</title>
+    <title>Red Social Manzanin</title>
 </head>
 
 <body>
@@ -18,31 +18,87 @@
             <div class="row">
                 <!--Aquí colocamos el logotipo-->
                 <div class="col-auto logo">
-                    <a href="#"><img src="assets/img/147.jpg" alt=""></a>
+                    <a href="#"><img src="assets/img/logo.jpg" alt=""></a>
                 </div>
                 <!--Barra de búsqueda (opcional)-->
-                <div class="col col-sm-8 col-lg-6 buscar">
-                    <form action="">
-                        <div class="row no-gutters">
-                            <div class="col-10">
-                                <input type="text" id="search" placeholder="Búsqueda">
-                            </div>
-                            <div class="col-2">
-                                <button id="btnSearch"><i class="fas fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="col buscar">
+                    <span id="title">Alimentación Saludable</span>
                 </div>
                 <!--Información de Perfil-->
-                <nav class="col menu">
-                    <span id="displayName">Phill Jackson</span>
+                <nav class="col-auto profile ml-auto">
+                    <a href="#"><span class="displayName">Lilo y Stich</span></a>
                     <!--Cargar imagen del usuario-->
-                    <a href="#" class="imagen"><img src="assets/img/persona1.jpg" width="30px" height="30px" alt="" id="imgProfile"></a>
+                    <a href="#" class="imagen"><img src="assets/img/persona-1.jpg" width="30px" height="30px" alt="" class="imgProfile"></a>
                 </nav>
             </div>
         </div>
     </header>
-    <main></main>
+
+    <!--MAIN-->
+    <main class="container">
+        <div class="row">
+            <!--BARRA LATERAL-->
+            <div class="col-md-3 barra-lateral-izquierda" id="barra-lateral-izquierda">
+                <nav>
+                    <a href='#' class="displayName">Jimena Acuña</a>
+                    <span id="rol">Investigadora</span>
+                    <a href="#" class="enlaces"><i class="fas fa-users"></i>Amigos</a>
+                    <a href="#" class="enlaces"><i class="fas fa-edit"></i>Post</a>
+                    <a href="#" class="enlaces"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </nav>
+            </div>
+            <!-- Contenido Principal-->
+            <!--formulario-->
+            <div class="col contenido-principal">
+                <div class="publicar">
+                    <div class="row">
+                        <div class="col-auto foto">
+                            <a href="">
+                                <img src="assets/img/persona2.png" width="62" alt="">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <form action="">
+                                <textarea name="mensaje" id="" placeholder="¿Qué te gustaría publicar?"></textarea>
+                                <div class="contenedor-botones d-flex justify-content-between">
+                                    <div class="media">
+                                        <a href=""><i class="fas fa-image"></i></a>
+                                        <a href=""><i class="fas fa-video"></i></a>
+                                    </div>
+                                    <div>
+                                        <input type="button" value="Publicar">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Publicaciones-->
+                <div class="publicacion">
+                    <div class="row">
+                        <div class="col-auto foto">
+                            <a href=""><img src="assets/img/persona2.png" alt=""></a>
+                        </div>
+                        <div class="col">
+                            <div class="post">
+                                <a href="" class="nombre">Andrea Lorem</a>
+                                <p class="texto">Lorem ipsum dolor sit amet consectetur.</p>
+                                <div class="caja-botones">
+                                    <button><i class="fas fa-thumbs-up"></i></button>
+                                    <p>15 <i class="fa fa-thumbs-up"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Barra derecha-->
+            <!-- <div class="col-3">
+
+            </div> -->
+        </div>
+    </main>
 
     <script src="/assets/js/jquery-3.3.1.min.js"></script>
     <script src="/assets/js/menu.js"></script>

@@ -1,8 +1,8 @@
 showUsers = () => {
     console.log('showusers')
     firebase.database().ref('users')
-        .limitToLast(5) 
-        .on('child_added', (newUser) => { 
+        .limitToLast(10)
+        .on('child_added', (newUser) => {
             friendList.innerHTML += `
                 <div class="profile">
                 <img class="profile-photo" src="${newUser.val().photoUrl}">
