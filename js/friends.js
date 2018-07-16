@@ -2,7 +2,7 @@ let currentUser = '';
 window.onload = () => {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            currentUser = firebase.auth().currentUser.uid
+            currentUser = firebase.auth().currentUser
         }
     });
 } 
@@ -33,12 +33,13 @@ showUsers = () => {
         });
 }
 addFriends = (keyNewFriend, email) => {
-    firebase.database().ref(`users/${currentUser}/amigos/${keyNewFriend}`).update({ email: email, uid: keyNewFriend });
+    firebase.database().ref(`users/${currentUser.uid}/amigos/${keyNewFriend}`).update({ email: email, uid: keyNewFriend });
+    firebase.database().ref(`users/${keyNewFriend}/amigos/${currentUser.uid}`).update({ email: currentUser.email, uid: currentUser.uid });
 }
 showFriends = () => {
     console.log('showfriends')
     usersContainer.innerHTML = ''
-    firebase.database().ref(`users/${currentUser}/amigos/`)
+    firebase.database().ref(`users/${currentUser.uid}/amigos/`)
         .limitToLast(10)
         .on('child_added', (friend) => {
             firebase.database().ref(`users/${friend.key}`)
@@ -67,6 +68,8 @@ showFriends = () => {
 }
 deleteFriend = (userKey)=>{
 console.log('delete' + userKey)
-firebase.database().ref(`users/${currentUser}/amigos/${userKey}`).remove()
+firebase.database().ref(`users/${currentUser.uid}/amigos/${userKey}`).remove()
+firebase.database().ref(`users/${userKey}/amigos/${currentUser.uid}`).remove()
+
 showFriends()
 }
