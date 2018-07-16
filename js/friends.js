@@ -5,7 +5,7 @@ window.onload = () => {
             currentUser = firebase.auth().currentUser
         }
     });
-} 
+}
 showUsers = () => {
     console.log('showusers')
     usersContainer.innerHTML = ''
@@ -66,10 +66,10 @@ showFriends = () => {
                 })
         });
 }
-deleteFriend = (userKey)=>{
-console.log('delete' + userKey)
-firebase.database().ref(`users/${currentUser.uid}/amigos/${userKey}`).remove()
-firebase.database().ref(`users/${userKey}/amigos/${currentUser.uid}`).remove()
+deleteFriend = (userKey) => {
+    console.log('delete' + userKey)
+    firebase.database().ref(`users/${currentUser.uid}/amigos/${userKey}`).remove()
+    firebase.database().ref(`users/${userKey}/amigos/${currentUser.uid}`).remove()
 
-showFriends()
+    showFriends()
 }
