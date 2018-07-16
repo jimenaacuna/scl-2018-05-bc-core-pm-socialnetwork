@@ -13,8 +13,7 @@ window.onload = () => {
     if (user) {
       loggedIn.style.display = "block"
       username.innerText = user.email
-      console.log(user)
-     
+    
     } else {
      loggedIn.style.display = "none"
     }
@@ -96,5 +95,5 @@ function googleLoginwithFireBase() {
   });
 }
 function redirectFromLogin(){
-  location.href = "profile.html";
+  location.href = "friends.html";
 }
