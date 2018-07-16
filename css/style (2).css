@@ -125,7 +125,7 @@ main .contenedor-botones a:hover {
     color: #3d3d3d;
 }
 
-main .contenido-principal .publicar form button {
+main .contenido-principal .publicar form input {
     border: 1px solid #fff;
     padding: 5px 30px;
     font-size: 14px;
@@ -136,49 +136,21 @@ main .contenido-principal .publicar form button {
     cursor: pointer;
 }
 
-main .contenido-principal .publicar form button:hover {
+main .contenido-principal .publicar form input:hover {
     background: linear-gradient(to bottom, #50c068d5 #005d2f 100%);
-}
-
-
-/* main .publicacion div #cont {
-    border-radius: 0.4em;
-    margin: 0 auto;
-    color: #4E4D53;
-    
-} */
-
-main .publicacion div #cont span {
-    margin-left: 1em;
-}
-
-main .publicacion div #cont {
-    padding: 1em 0.5em;
-    /*margin-bottom: 2em;
-    outline: 0.1em solid #E5E3F2;*/
-    background-color: #FFF;
-    border-radius: 0.4em;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    color: #4E4D53;
-    text-align: left;
 }
 
 
 /*--publicaciones*/
 
 main .publicacion {
-    margin-bottom: 20px;
-}
-
-main .foto {
-    padding-right: 0px;
+    margin-bottom: 40px;
 }
 
 main .publicacion .foto a {
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     overflow: hidden;
     border-radius: 7px 7px 7px 7px;
 }
@@ -193,103 +165,11 @@ main .publicacion .nombre {
     margin-bottom: 10px;
 }
 
-main .publicacion .texto {
+main.publicacion .texto {
     background: #fff;
     color: #3d3c3c;
-    margin-bottom: 3px;
-}
-
-main .publicacion .texto p {
-    padding: 0;
-}
-
-main .publicacion .post .caja-botones {
-    margin-bottom: 20px;
-}
-
-main .publicacion .post .caja-botones p {
-    margin-bottom: 0px;
-    color: #005D2F;
-}
-
-main .publicacion .btn-edit {
-    text-align: right;
-}
-
-main .publicacion .post .caja-botones button {
-    cursor: pointer;
-    padding: 3px 6px;
-    display: inline-block;
-    color: #fff;
-    background: #005D2F;
-    border-radius: 4px;
-    border: none;
-    line-height: 18px;
-}
-
-main .publicacion .post .caja-botones button:hover {
-    background: #50c068d5;
+    font-size:
 }
 
 
 /*--MEDIA QUERIES --*/
-
-@media screen and (max-width: 767px) {
-    main .btn-menu {
-        display: block;
-        border: 1px solid #005d2f;
-        padding: 5px 10px;
-        font-size: 14px;
-        background: linear-gradient(to bottom, #005d2f, #50c068d5 100%);
-        color: #fff;
-        border-radius: 3px;
-        cursor: pointer;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    main .btn-menu:hover {
-        text-decoration: none;
-        background: #005d2f;
-    }
-    main .fondo-enlace {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        cursor: pointer;
-        background: rgba(0, 0, 0, .5);
-        z-index: 99;
-        display: none;
-    }
-    main .fondo-enlace.active {
-        display: block;
-    }
-    main .barra-lateral-izquierda {
-        width: 50%;
-        position: fixed;
-        z-index: 100;
-        left: 0;
-        top: 0;
-        background: rgba(0, 0, 0, .85);
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        transform: translateX(-100%);
-        transition: all .3s ease;
-    }
-    main .barra-lateral-izquierda.active {
-        transform: translateX(0%);
-    }
-    main .barra-lateral-izquierda nav {
-        border-bottom: none;
-    }
-    main .barra-lateral-izquierda nav a {
-        padding: 15px;
-        color: white;
-    }
-    /* main .barra-lateral-izquierda nav a:hover {
-        color: #3d3c3c;
-        background: white;
-    } */
-}

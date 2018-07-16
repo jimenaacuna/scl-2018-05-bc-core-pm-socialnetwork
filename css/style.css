@@ -5,19 +5,52 @@
 .inline {
     display: inline-block;
 }
-
+input{
+    border: none;
+    background: #eceaea;
+}
 #message {
     background: #dff7e9;
     padding: 10px;
 }
-.profile-photo{
+
+.profile-photo-list {
     width: 80px;
     margin: 5px;
     float: left;
-    
+}.profile-photo{
+    background: #ffff;
+    border: 2px solid #e7e6e6;
+    padding: 5px;
 }
-.profile{
-    background-color: #dff7e9;
+.profile-data{
+           background: #eceaea;
+           padding: 10px;
+           margin: 5px;
+          
+}
+
+.profile {
+    background-color: #f6fffa;
     margin-bottom: 5px;
-    height: 90px;
+    padding: 15px;
+     font-family: 'Titillium Web',
+     sans-serif;
+     font-size: 18px;
+}
+
+.green-one {
+    background-color: #00CC66;
+    border: none;
+}
+
+.green-two {
+    background-color: #005D2F;
+    border: none;
+}
+.full{
+    width: 100%
+}
+.center{
+    text-align: center
 }

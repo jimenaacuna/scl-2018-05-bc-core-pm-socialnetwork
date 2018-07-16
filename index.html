@@ -16,31 +16,56 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-8 col-md-4 mx-auto">
+            <!-- Div general -->
+            <div class="col-10 col-md-5 mx-auto">
+                <!-- Div nombre de usuario -->
                 <div id="loggedIn">
                     <p id="username"></p>
                     <input id="logout" type="button" class="btn btn-secondary inline" value="LOGOUT" onclick="logoutWithFireBase()">
                 </div>
-                <div class="login-form">
-                    <h2 class="text-center">Red alimenta</h2>
-                    <div class="form-group">
-                        <input id="txtEmail" type="email" class="form-control pd" placeholder="email" required="required">
-                        <input id="txtPassword" type="password" class="form-control pd" placeholder="Password" required="required">
-                        <button type="submit" id="btnLogin" class="btn btn-primary inline" onclick="loginWithFirebase()">Log in</button>
-                        <button id="btnSignUp" class="btn btn-secondary inline pd" onclick="registerWithFirebase()">Registrarse</button>
-                        <button id="btnSignUp" class="btn btn-secondary inline pd" onclick="facebookLoginwithFireBase()">
-              <i class="fab fa-facebook-f"></i> Sign in facebook</button>
-                        <button id="btnSignUp" class="btn btn-secondary inline pd" onclick="googleLoginwithFireBase()">
-              <i class="fab fa-google"></i> Sign in google</button>
-                        <div id="message"></div>
+                <!-- Div logo y titulo -->
+                <div class="row">
+                    <div class="col-12 center">
+                        <img src="assets/img/nutricion.svg" width="80" alt="">
+                        <h2 class="text-center">Red alimenta</h2>
                     </div>
-                    <div class="clearfix">
-                        <a href="#" class="pull-right">Forgot Password?</a>
+                </div>
+                <!-- Div form -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group login-form">
+                            <input id="txtEmail" type="email" class="form-control pd" placeholder="email" required="required">
+                            <input id="txtPassword" type="password" class="form-control pd" placeholder="Password" required="required">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="submit" id="btnLogin" class="btn btn-primary inline  full  green-one" onclick="loginWithFirebase()">Log in</button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-secondary inline  full green-one " onclick="registerWithFirebase()">Registrarse</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-secondary inline pd full green-two" onclick="facebookLoginwithFireBase()">
+                      <i class="fab fa-facebook-f"></i> Sign in facebook</button>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-secondary inline pd full green-two" onclick="googleLoginwithFireBase()">
+                      <i class="fab fa-google"></i> Sign in google</button>
+                                </div>
+                            </div>
+
+                            <div id="message"></div>
+                        </div>
+                        <div>
+                            <a href="#" class="pull-right">Forgot Password?</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="js/auth.js"></script>
 

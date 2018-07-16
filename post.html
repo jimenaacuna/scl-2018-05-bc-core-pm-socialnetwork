@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911|Signika+Negative|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <title>Red Social Manzanin</title>
 </head>
 
@@ -18,7 +18,7 @@
             <div class="row">
                 <!--Aquí colocamos el logotipo-->
                 <div class="col-auto logo">
-                    <a href="#"><img src="assets/img/logo.jpg" alt=""></a>
+                    <a href="#"><img src="img/logo.jpg" alt=""></a>
                 </div>
                 <!--Barra de búsqueda (opcional)-->
                 <div class="col buscar">
@@ -26,9 +26,9 @@
                 </div>
                 <!--Información de Perfil-->
                 <nav class="col-auto profile ml-auto">
-                    <a href="#"><span class="displayName">Lilo y Stich</span></a>
+                    <a href="#"><span class="displayName"></span></a>
                     <!--Cargar imagen del usuario-->
-                    <a href="#" class="imagen"><img src="assets/img/persona-1.jpg" width="30px" height="30px" alt="" class="imgProfile"></a>
+                    <a href="#" class="imagen"></a>
                 </nav>
             </div>
         </div>
@@ -40,33 +40,39 @@
             <!--BARRA LATERAL-->
             <div class="col-md-3 barra-lateral-izquierda" id="barra-lateral-izquierda">
                 <nav>
-                    <a href='#' class="displayName">Jimena Acuña</a>
-                    <span id="rol">Investigadora</span>
+                    <a href="profile.html" class="enlaces"><i class="fas fa-user"></i>Perfil</a>
                     <a href="#" class="enlaces"><i class="fas fa-users"></i>Amigos</a>
                     <a href="#" class="enlaces"><i class="fas fa-edit"></i>Post</a>
-                    <a href="#" class="enlaces"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                    <a href="#" class="enlaces"><i class="fas fa-list"></i>Lista de Usuarios</a>
+                    <a href="index.html" class="enlaces"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </nav>
             </div>
+            <a href="" class="fondo-enlace d-md-none" id="fondo-enlace"></a>
+
             <!-- Contenido Principal-->
             <!--formulario-->
             <div class="col contenido-principal">
                 <div class="publicar">
                     <div class="row">
-                        <div class="col-auto foto">
-                            <a href="">
-                                <img src="assets/img/persona2.png" width="62" alt="">
+                        <div class="col">
+                            <a href="#" class="btn-menu d-md-none d-flex justify-content-between" id="btn-menu">
+                                <span>Menu</span>
+                                <i class="fas fa-bars"></i>
                             </a>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col">
                             <form action="">
-                                <textarea name="mensaje" id="" placeholder="¿Qué te gustaría publicar?"></textarea>
+                                <textarea name="mensaje" id="comment" placeholder="¿Qué te gustaría publicar?"></textarea>
                                 <div class="contenedor-botones d-flex justify-content-between">
                                     <div class="media">
                                         <a href=""><i class="fas fa-image"></i></a>
+                                        <!--<input type="file" id="photoFileSelector" onclick="sendPhotoToStorage()">-->
                                         <a href=""><i class="fas fa-video"></i></a>
                                     </div>
                                     <div>
-                                        <input type="button" value="Publicar">
+                                        <button type="button" id="btn-publicar">Publicar</button>
                                     </div>
                                 </div>
                             </form>
@@ -78,13 +84,18 @@
                 <div class="publicacion">
                     <div class="row">
                         <div class="col-auto foto">
-                            <a href=""><img src="assets/img/persona2.png" alt=""></a>
+                            <a href="" class="commentName mr-0"></a>
                         </div>
                         <div class="col">
                             <div class="post">
-                                <a href="" class="nombre">Andrea Lorem</a>
-                                <p class="texto">Lorem ipsum dolor sit amet consectetur.</p>
-                                <div class="caja-botones">
+                                <div class="col" id="cont">
+                                    <span id="publicar"></span>
+                                </div>
+                                <div class="btn-edit">
+                                    <a href=""><span class=" small" id="edit"></span></a>
+                                    <a href=""><span class="small" id="delete"></span></a>
+                                </div>
+                                <div class="caja-botones d-flex justify-content-between align-items-center">
                                     <button><i class="fas fa-thumbs-up"></i></button>
                                     <p>15 <i class="fa fa-thumbs-up"></i></p>
                                 </div>
@@ -93,16 +104,17 @@
                     </div>
                 </div>
             </div>
-            <!--Barra derecha-->
-            <!-- <div class="col-3">
 
-            </div> -->
+        </div>
         </div>
     </main>
 
-    <script src="/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="/assets/js/menu.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/post.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
