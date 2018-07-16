@@ -231,6 +231,10 @@ main .publicacion .post .caja-botones button:hover {
     background: #50c068d5;
 }
 
+main .publicacion div #publicar {
+    padding: 10px;
+}
+
 
 /*--MEDIA QUERIES --*/
 

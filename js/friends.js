@@ -5,19 +5,13 @@ window.onload = () => {
             currentUser = firebase.auth().currentUser
         }
     });
-} 
+}
 showUsers = () => {
     console.log('showusers')
     usersContainer.innerHTML = ''
     firebase.database().ref('users')
         .limitToLast(10)
         .on('child_added', (newUser) => {
-<<<<<<< HEAD
-            friendList.innerHTML += `
-                <div class="profile">
-                <img class="profile-photo" src="${newUser.val().photoUrl}">
-                </img><span>${newUser.val().displayName}</span>
-=======
             usersContainer.innerHTML += `
                 <div class="row">
                 <div class="col-10 profile mx-auto">
@@ -27,7 +21,6 @@ showUsers = () => {
                 <span>${newUser.val().displayName}</span>
                 </div>
                 <div class="row">
->>>>>>> 7b674483e70a6c4423702acef2e58c00697739d9
                 <span>${newUser.val().rol}</span>
                 </div>
                 <div class="row">
@@ -73,14 +66,10 @@ showFriends = () => {
                 })
         });
 }
-<<<<<<< HEAD
-showUsers()
-=======
-deleteFriend = (userKey)=>{
-console.log('delete' + userKey)
-firebase.database().ref(`users/${currentUser.uid}/amigos/${userKey}`).remove()
-firebase.database().ref(`users/${userKey}/amigos/${currentUser.uid}`).remove()
+deleteFriend = (userKey) => {
+    console.log('delete' + userKey)
+    firebase.database().ref(`users/${currentUser.uid}/amigos/${userKey}`).remove()
+    firebase.database().ref(`users/${userKey}/amigos/${currentUser.uid}`).remove()
 
-showFriends()
+    showFriends()
 }
->>>>>>> 7b674483e70a6c4423702acef2e58c00697739d9
