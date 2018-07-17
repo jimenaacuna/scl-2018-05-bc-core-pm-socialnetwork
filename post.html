@@ -67,9 +67,9 @@
                                 <textarea name="mensaje" id="comment" placeholder="¿Qué te gustaría publicar?"></textarea>
                                 <div class="contenedor-botones d-flex justify-content-between">
                                     <div class="media">
-                                        <a href=""><i class="fas fa-image"></i></a>
-                                        <!--<input type="file" id="photoFileSelector" onclick="sendPhotoToStorage()">-->
-                                        <a href=""><i class="fas fa-video"></i></a>
+                                        <input type="file" type="submit" name="file" id="file" class="inputfile" onchange="" value="subir" />
+                                        <label for="file">
+                                              <i class="fas fa-image"></i></label>
                                     </div>
                                     <div>
                                         <button type="button" id="btn-publicar" onclick="publicar()">Publicar</button>

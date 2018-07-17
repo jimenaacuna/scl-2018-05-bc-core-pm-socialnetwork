@@ -21,19 +21,31 @@ window.onload = () => {
     }
     //Publicaciones
 publicar = () => {
-    // forma personal
     let comments = document.getElementById('comment').value;
     if (comments == '') {
         alert('Ingrese un texto')
     } else {
         let time = new Date().toLocaleString()
-            /*  const newPostKey = firebase.database().ref().child(`posts/${currentUser.uid}`).push().key;
-             firebase.database().ref(`posts/${currentUser.uid}/${newPostKey}`).update({ contenido: comments, likes: '0', user: currentUser.displayName, time: time }); */
-            // forma todos
-        const newPost2Key = firebase.database().ref().child(`posts`).push().key;
-        firebase.database().ref(`posts/${newPost2Key}`).update({ contenido: comments, likes: '0', user: currentUser.displayName, userUid: currentUser.uid, time: time });
-        // mostrarPublicaciones()
-        document.getElementById('comment').value = '';
+        const photoFile = file.files[0];
+        if (photoFile != undefined) {
+
+            const photoFileName = photoFile.name
+            const task = firebase.storage().ref('images')
+                .child(photoFileName)
+                .put(photoFile);
+            task.then(snapshot => snapshot.ref.getDownloadURL())
+                .then(url => {
+                    urlPhoto = url
+                    console.log('URL del archivo > ' + url);
+                    const newPost2Key = firebase.database().ref().child(`posts`).push().key;
+                    firebase.database().ref(`posts/${newPost2Key}`).update({ contenido: comments, likes: '0', user: currentUser.displayName, userUid: currentUser.uid, time: time, imageUrl: url });
+                });
+            document.getElementById('comment').value = '';
+        } else {
+            const newPost2Key = firebase.database().ref().child(`posts`).push().key;
+            firebase.database().ref(`posts/${newPost2Key}`).update({ contenido: comments, likes: '0', user: currentUser.displayName, userUid: currentUser.uid, time: time });
+            document.getElementById('comment').value = '';
+        }
     }
 }
 editPost = (keyPost) => {
@@ -81,6 +93,7 @@ mostrarPublicaciones = () => {
     <div class="row">
     <div class="col">
       <div class="post">
+      <img class="img-post" src="${post.val().imageUrl}">
           <div class="col" id="cont">
               <input id="inputContentPost" value="${post.val().contenido}" disabled>
           </div>
@@ -103,30 +116,18 @@ mostrarPublicaciones = () => {
 
 }
 
+//Enviar foto
+function sendPhoto() {
+    const photoValue = photoArea.value;
 
+    const newPhotoKey = firebase.database().ref().child(`photoComment`).push().key;
+    firebase.database().ref(`posts/${newPhotoKey}`).update({ contenido: photoValue })
 
-/*  document.getElementById('comment').value = '';
- const newComments = document.createElement('div'); //agregar nuevos comentarios creando div al html
- const contenedorElemento = document.createElement('span');
- let textNewComment = document.createTextNode(comments);
- contenedorElemento.appendChild(textNewComment);
- newComments.appendChild(contenedorElemento);
- cont.appendChild(newComments); */
+    const newGifKey = firebase.database().ref().child('gifs').push().key;
+    const currentUser = firebase.auth().currentUser;
 
-
-// function sendPhotoToStorage() {
-//     const photoFile = photoFileSelector.files[0];
-//     const fileName = photoFile.name;
-//     const metadata = {
-//         contentType: photoFile.type
-//     };
-
-//     const task = firebase.storage().ref('images')
-//         .child(fileName)
-//         .put(photoFile, metadata);
-
-//     task.then(snapshot => snapshot.ref.getDownloadURL())
-//         .then(url => {
-//             console.log('URL del archivo > ' + url);
-//         });
-// }>
+    firebase.database().ref(`gifs/${newGifKey}`).set({
+        gifURL: gifValue,
+        creatorName: fullProfile.displayName,
+    });
+}
