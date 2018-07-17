@@ -4,6 +4,7 @@
 
 .inline {
     display: inline-block;
+    
 }
 
 input {
@@ -43,12 +44,13 @@ input {
 }
 
 .green-one {
-    background-color: #00CC66;
+    background-color: #82b43f;
     border: none;
+
 }
 
 .green-two {
-    background-color: #005D2F;
+    background-color: #C6DCA7;
     border: none;
 }
 
@@ -64,3 +66,14 @@ input {
     color: #918a8a;
     float: right;
 }
+
+/* login */
+
+.logo img{
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
+
+
+
