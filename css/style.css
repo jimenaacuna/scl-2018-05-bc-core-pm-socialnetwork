@@ -5,10 +5,12 @@
 .inline {
     display: inline-block;
 }
-input{
+
+input {
     border: none;
     background: #eceaea;
 }
+
 #message {
     background: #dff7e9;
     padding: 10px;
@@ -18,25 +20,26 @@ input{
     width: 80px;
     margin: 5px;
     float: left;
-}.profile-photo{
+}
+
+.profile-photo {
     background: #ffff;
     border: 2px solid #e7e6e6;
     padding: 5px;
 }
-.profile-data{
-           background: #eceaea;
-           padding: 10px;
-           margin: 5px;
-          
+
+.profile-data {
+    background: #eceaea;
+    padding: 10px;
+    margin: 5px;
 }
 
 .profile {
     background-color: #f6fffa;
     margin-bottom: 5px;
     padding: 15px;
-     font-family: 'Titillium Web',
-     sans-serif;
-     font-size: 18px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
 }
 
 .green-one {
@@ -48,14 +51,16 @@ input{
     background-color: #005D2F;
     border: none;
 }
-.full{
+
+.full {
     width: 100%
 }
-.center{
+
+.center {
     text-align: center
 }
-.fa-edit{
-   
+
+.fa-edit {
     color: #918a8a;
     float: right;
 }

@@ -40,10 +40,11 @@
             <div class="col-md-3 barra-lateral-izquierda" id="barra-lateral-izquierda">
                 <nav>
                     <a href="profile.html" class="enlaces"><i class="fas fa-user"></i>Perfil</a>
-                    <a href="#" class="enlaces"><i class="fas fa-users"></i>Amigos</a>
-                    <a href="#" class="enlaces"><i class="fas fa-edit"></i>Post</a>
+                    <a href="users.html" class="enlaces"><i class="fas fa-users"></i>Amigos</a>
+                    <a href="post.html" class="enlaces"><i class="fas fa-edit"></i>Post</a>
                     <a href="#" class="enlaces"><i class="fas fa-list"></i>Lista de Usuarios</a>
-                    <a href="index.html" class="enlaces"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                    <a href="mensajes.html" class="enlaces"><i class="fas fa-edit"></i>Mensajes</a>
+                    <a href="#" onclick="logoutWithFireBase()" class="enlaces"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </nav>
             </div>
             <a href="" class="fondo-enlace d-md-none" id="fondo-enlace"></a>
@@ -71,7 +72,7 @@
                                         <a href=""><i class="fas fa-video"></i></a>
                                     </div>
                                     <div>
-                                        <button type="button" id="btn-publicar">Publicar</button>
+                                        <button type="button" id="btn-publicar" onclick="publicar()">Publicar</button>
                                     </div>
                                 </div>
                             </form>
@@ -81,7 +82,8 @@
 
                 <!--Publicaciones-->
                 <div class="publicacion">
-                    <div class="row">
+                    <div id="contentPublicaciones">
+                        <!--  <div class="row">
                         <div class="col-auto foto">
                             <a href="" class="commentName mr-0"></a>
                         </div>
@@ -100,6 +102,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div> -->
                     </div>
                 </div>
             </div>

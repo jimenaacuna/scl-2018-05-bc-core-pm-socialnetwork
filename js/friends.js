@@ -1,8 +1,22 @@
 let currentUser = '';
+let fullProfile = '';
+
 window.onload = () => {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             currentUser = firebase.auth().currentUser
+            showUsers()
+            firebase.database().ref(`users/${currentUser.uid}`)
+                .once('value')
+                .then((user) => {
+                    fullProfile = user.val()
+                    $('.displayName').html(`Bienvenid@: <b> ${fullProfile.displayName} </b>`)
+                    $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
+                    mostrarPublicaciones()
+                })
+                .catch((error) => {
+                    console.log("Database error > " + JSON.stringify(error));
+                });
         }
     });
 }

@@ -1,5 +1,5 @@
 body {
-    background-color: #D0F0C0;
+    background-color: #f0f1ef;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
 }
@@ -241,10 +241,9 @@ main .publicacion div #publicar {
 @media screen and (max-width: 767px) {
     main .btn-menu {
         display: block;
-        border: 1px solid #005d2f;
         padding: 5px 10px;
         font-size: 14px;
-        background: linear-gradient(to bottom, #005d2f, #50c068d5 100%);
+        background: #82b43f;
         color: #fff;
         border-radius: 3px;
         cursor: pointer;
@@ -296,4 +295,16 @@ main .publicacion div #publicar {
         color: #3d3c3c;
         background: white;
     } */
+}
+
+.contentPost {
+    background: #cde8bf;
+    padding: 10px;
+    margin-bottom: 5px
+}
+
+input {
+    border: none;
+    background: none;
+    width: 100%
 }

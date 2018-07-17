@@ -7,37 +7,64 @@
     <title>Autentificación en Firebase</title>
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style-post.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <div class="container">
+    <header>
+        <div class="container">
+            <div class="row">
+                <!--Aquí colocamos el logotipo-->
+                <div class="col-auto logo">
+                    <a href="#"><img src="img/logo.jpg" alt=""></a>
+                </div>
+                <!--Barra de búsqueda (opcional)-->
+                <div class="col buscar">
+                    <span id="title">Alimentación Saludable</span>
+                </div>
+                <!--Información de Perfil-->
+                <nav class="col-auto profile ml-auto">
+                    <a href="#"><span class="displayName"></span></a>
+                    <!--Cargar imagen del usuario-->
+                    <a href="#" class="imagen"></a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="container">
         <div class="row">
+            <!--BARRA LATERAL-->
+            <div class="col-md-3 barra-lateral-izquierda" id="barra-lateral-izquierda">
+                <nav>
+                    <a href="profile.html" class="enlaces"><i class="fas fa-user"></i>Perfil</a>
+                    <a href="post.html" class="enlaces"><i class="fas fa-edit"></i>Post</a>
+                    <a href="users.html" class="enlaces"><i class="fas fa-list"></i>Lista de Usuarios</a>
+                    <a href="mensajes.html" class="enlaces"><i class="fas fa-edit"></i>Mensajes</a>
+                    <a href="#" onclick="logoutWithFireBase()" class="enlaces"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </nav>
+            </div>
+            <a href="" class="fondo-enlace d-md-none" id="fondo-enlace"></a>
 
-            <div class="col-11 col-md-4 mx-auto profile">
-                <div id="loggedIn">
-                    <p id="username"></p>
-                    <input id="logout" type="button" class="btn btn-secondary inline" value="LOGOUT" onclick="logoutWithFireBase()">
+            <div class="col col-md-6 mx-auto profile">
+                <div class="col">
+                    <a href="#" class="btn-menu d-md-none d-flex justify-content-between" id="btn-menu">
+                        <span>Menu</span>
+                        <i class="fas fa-bars"></i>
+                    </a>
                 </div>
                 <div class="row">
                     <div class="col-12 center">
                         <div id="photo" class="center"></div>
                         <span id="userName"></span>
-                
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Enviar mensaje</button>
-                                               
+                        <i class="far fa-envelope" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"></i>
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -49,7 +76,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <form>
-                                                <div class="form-group">
+                                            <div class="form-group">
                                                 <label for="message-text" class="col-form-label">Message:</label>
                                                 <textarea class="form-control" id="messageText"></textarea>
                                             </div>
@@ -90,11 +117,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-        <script src="js/auth.js"></script>
-        <script src="js/profile.js"></script>
-
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 
 </html>
