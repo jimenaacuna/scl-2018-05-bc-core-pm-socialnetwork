@@ -308,3 +308,36 @@ input {
     background: none;
     width: 100%
 }
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile+label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: #0e9c0e;
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.inputfile:focus+label,
+.inputfile+label:hover {
+    background-color: #e67e29;
+}
+
+.inputfile:focus+label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.img-post {
+    width: 100%
+}
