@@ -132,3 +132,24 @@ main div .profile-icon i {
     font-weight: bold;
     font-size: 20px;
 }
+
+
+/*Pagina de Usuarios */
+
+.btn-users {
+    border: 1px solid #fff;
+    padding: 5px 30px;
+    font-size: 14px;
+    background: #82b43f;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-users:hover {
+    background: #3d3c3c;
+}
+
+#users {
+    border: 0.3px solid black;
+}
