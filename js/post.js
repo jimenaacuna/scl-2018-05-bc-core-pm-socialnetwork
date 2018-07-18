@@ -2,6 +2,7 @@
 let currentUser = '';
 let fullProfile = '';
 window.onload = () => {
+<<<<<<< 4ed1ba270ea30679f5d115c90f8494701e889dc2
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             mostrarPublicaciones()
@@ -21,6 +22,26 @@ window.onload = () => {
     });
 }
 //Publicaciones
+=======
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                currentUser = firebase.auth().currentUser
+                firebase.database().ref(`users/${currentUser.uid}`)
+                    .once('value')
+                    .then((user) => {
+                        fullProfile = user.val()
+                        $('.displayName').html(`${fullProfile.displayName} </b>`)
+                        $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
+                        mostrarPublicaciones()
+                    })
+                    .catch((error) => {
+                        console.log("Database error > " + JSON.stringify(error));
+                    });
+            }
+        });
+    }
+    //Publicaciones
+>>>>>>> cambios en estilo del profile
 publicar = () => {
     let comments = document.getElementById('comment').value;
     if (comments == '') {
@@ -112,6 +133,7 @@ mostrarPublicaciones = () => {
        
     })
 
+<<<<<<< 4ed1ba270ea30679f5d115c90f8494701e889dc2
 }
 editPost = (keyPost) => {
    let inputId= 'post' + keyPost
@@ -136,4 +158,6 @@ like = (keyPost) => {
     likes++;
     firebase.database().ref(`posts/${keyPost}`).update({ likes: likes });
     mostrarPublicaciones()
+=======
+>>>>>>> cambios en estilo del profile
 }

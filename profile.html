@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autentificación en Firebase</title>
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web|Roboto" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
@@ -21,21 +21,17 @@
 <body>
     <header>
         <div class="container">
-            <div class="row">
+            <div class="row" id="profile">
                 <!--Aquí colocamos el logotipo-->
-                <div class="col-auto logo">
-                    <a href="#"><img src="img/logo.jpg" alt=""></a>
-                </div>
-                <!--Barra de búsqueda (opcional)-->
-                <div class="col buscar">
-                    <span id="title">Alimentación Saludable</span>
+                <div class="col logo">
+                    <a href="#"><img src="img/logo.png" alt=""></a>
                 </div>
                 <!--Información de Perfil-->
-                <nav class="col-auto profile ml-auto">
+                <div class="col profile col-md-6">
                     <a href="#"><span class="displayName"></span></a>
                     <!--Cargar imagen del usuario-->
                     <a href="#" class="imagen"></a>
-                </nav>
+                </div>
             </div>
         </div>
     </header>
@@ -44,10 +40,9 @@
             <!--BARRA LATERAL-->
             <div class="col-md-3 barra-lateral-izquierda" id="barra-lateral-izquierda">
                 <nav>
-                    <a href="profile.html" class="enlaces"><i class="fas fa-user"></i>Perfil</a>
                     <a href="post.html" class="enlaces"><i class="fas fa-edit"></i>Post</a>
-                    <a href="users.html" class="enlaces"><i class="fas fa-list"></i>Lista de Usuarios</a>
-                    <a href="mensajes.html" class="enlaces"><i class="fas fa-edit"></i>Mensajes</a>
+                    <a href="users.html" class="enlaces"><i class="fas fa-users"></i>Lista de Usuarios</a>
+                    <a href="mensajes.html" class="enlaces"><i class="fas fa-envelope"></i>Mensajes</a>
                     <a href="#" onclick="logoutWithFireBase()" class="enlaces"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </nav>
             </div>
@@ -85,7 +80,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary" onclick="sendMessage()">Send message</button>
+                                        <button type="button" class="btn btn-primary" onclick="sendMessage()" id="close">Send message</button>
                                     </div>
                                 </div>
                             </div>
@@ -94,26 +89,23 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12 mx-auto profile-data">
+                    <div class="col profile-data profile-icon">
                         <i class="far fa-user-circle"></i>
-                        <input id="rol" disabled></input>
-                        <i class="far fa-edit" id="enabledRol"></i>
-
-
-
+                        <input class="infoProfile" id="rol" disabled></input>
+                        <i class="far fa-edit " id="enabledRol"></i>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 mx-auto profile-data">
+                    <div class="col profile-data profile-icon">
                         <i class="far fa-envelope"></i>
-                        <span id="userEmail"></span>
+                        <span class="infoProfile" id="userEmail"></span>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 mx-auto profile-data">
+                    <div class="col profile-data profile-icon">
                         <i class="fas fa-globe-americas"></i>
-                        <input id="country" disabled></input>
-                        <i class="far fa-edit" id="enabledCountry"></i>
+                        <input class="infoProfile" id="country" disabled></input>
+                        <i class="far fa-edit profile-icon" id="enabledCountry"></i>
 
                     </div>
                 </div>

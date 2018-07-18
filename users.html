@@ -17,21 +17,17 @@
 <body>
     <header>
         <div class="container">
-            <div class="row">
+            <div class="row" id="profile">
                 <!--Aquí colocamos el logotipo-->
-                <div class="col-auto logo">
-                    <a href="#"><img src="img/logo.jpg" alt=""></a>
-                </div>
-                <!--Barra de búsqueda (opcional)-->
-                <div class="col buscar">
-                    <span id="title">Alimentación Saludable</span>
+                <div class="col logo">
+                    <a href="#"><img src="img/logo.png" alt=""></a>
                 </div>
                 <!--Información de Perfil-->
-                <nav class="col-auto profile ml-auto">
+                <div class="col profile col-md-6">
                     <a href="#"><span class="displayName"></span></a>
                     <!--Cargar imagen del usuario-->
                     <a href="#" class="imagen"></a>
-                </nav>
+                </div>
             </div>
         </div>
     </header>
@@ -42,8 +38,7 @@
                 <nav>
                     <a href="profile.html" class="enlaces"><i class="fas fa-user"></i>Perfil</a>
                     <a href="post.html" class="enlaces"><i class="fas fa-edit"></i>Post</a>
-                    <a href="users.html" class="enlaces"><i class="fas fa-list"></i>Lista de Usuarios</a>
-                    <a href="mensajes.html" class="enlaces"><i class="fas fa-edit"></i>Mensajes</a>
+                    <a href="mensajes.html" class="enlaces"><i class="fas fa-envelope"></i>Mensajes</a>
                     <a href="#" onclick="logoutWithFireBase()" class="enlaces"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </nav>
             </div>
@@ -71,7 +66,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
     <script src="js/auth.js"></script>
-
     <script src="js/friends.js"></script>
     <script src="js/menu.js"></script>
 </body>
