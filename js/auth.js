@@ -95,3 +95,4 @@
  function redirectFromLogin() {
      location.href = "post.html";
  }
+ module.export = auth;
