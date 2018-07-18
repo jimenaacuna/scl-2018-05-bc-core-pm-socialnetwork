@@ -4,12 +4,19 @@
 
 .inline {
     display: inline-block;
-    
 }
 
-input {
+.infoProfile {
     border: none;
-    background: #eceaea;
+    background: none;
+    color: gainsboro;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+input #country {
+    padding-left: 10px;
+    margin-left: 8px;
 }
 
 #message {
@@ -24,29 +31,22 @@ input {
 }
 
 .profile-photo {
-    background: #ffff;
-    border: 2px solid #e7e6e6;
+    border-radius: 100%;
     padding: 5px;
 }
 
 .profile-data {
-    background: #eceaea;
+    background: #5d5c5c;
     padding: 10px;
     margin: 5px;
-}
-
-.profile {
-    background-color: #f6fffa;
-    margin-bottom: 5px;
-    padding: 15px;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
 
 .green-one {
     background-color: #82b43f;
     border: none;
-
 }
 
 .green-two {
@@ -62,8 +62,14 @@ input {
     text-align: center
 }
 
-.fa-edit {
-    color: #918a8a;
+
+/* iconos */
+
+main div .profile-icon i {
+    color: #83b43f;
+}
+
+#enabledRol {
     float: right;
 }
 
@@ -77,34 +83,73 @@ input {
     color: #4E4D53;
     text-align: left;
 }
+
+
 /* login */
 
-.logo img{
+.logo img {
     margin-top: 20%;
     margin-bottom: 20%;
 }
 
-#message{
+#message {
     background-color: #DEDEDE;
-
 }
 
-.pull-right{
+.pull-right {
     color: #82B43F;
-    
 }
-.botones{
-        font-weight: 400;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        padding: .375rem .75rem;
-        font-size: 1rem;
-        color: #fff;
-       
-        line-height: 1.5;
-        border-radius: .25rem;
+
+.botones {
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    color: #fff;
+    line-height: 1.5;
+    border-radius: .25rem;
 }
-.botones:hover{
- cursor: pointer;
+
+.botones:hover {
+    cursor: pointer;
+}
+
+#enabledRol:hover {
+    background: #c7c8ca;
+}
+
+#enabledCountry {
+    float: right;
+}
+
+#enabledCountry:hover {
+    background: #c7c8ca;
+}
+
+#userName {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+/*Pagina de Usuarios */
+
+.btn-users {
+    border: 1px solid #fff;
+    padding: 5px 30px;
+    font-size: 14px;
+    background: #82b43f;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-users:hover {
+    background: #3d3c3c;
+}
+
+#users {
+    border: 0.3px solid black;
 }

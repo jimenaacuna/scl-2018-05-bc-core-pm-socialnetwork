@@ -10,7 +10,7 @@ window.onload = () => {
                 .once('value')
                 .then((user) => {
                     fullProfile = user.val()
-                    $('.displayName').html(`Bienvenid@: <b> ${fullProfile.displayName} </b>`)
+                    $('.displayName').html(`${fullProfile.displayName} </b>`)
                     $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
                     mostrarPublicaciones()
                 })
@@ -28,7 +28,7 @@ showUsers = () => {
         .on('child_added', (newUser) => {
             usersContainer.innerHTML += `
                 <div class="row">
-                <div class="col-10 profile mx-auto">
+                <div class="col-10 profile mx-auto id='users'">
                 <img class="profile-photo-list" src="${newUser.val().photoUrl}">
                 </img>
                 <div class="row">
@@ -60,7 +60,7 @@ showFriends = () => {
                 .once('value')
                 .then((user) => {
                     usersContainer.innerHTML += `
-                <div class="row">
+                <div class="row ">
                 <div class="col-10 profile mx-auto">
                 <img class="profile-photo-list" src="${user.val().photoUrl}">
                 </img>

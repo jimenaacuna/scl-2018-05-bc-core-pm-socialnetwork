@@ -2,25 +2,25 @@
 let currentUser = '';
 let fullProfile = '';
 window.onload = () => {
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            mostrarPublicaciones()
-            currentUser = firebase.auth().currentUser
-            firebase.database().ref(`users/${currentUser.uid}`)
-                .once('value')
-                .then((user) => {
-                    fullProfile = user.val()
-                    $('.displayName').html(`Bienvenid@: <b> ${fullProfile.displayName} </b>`)
-                    $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
-                    
-                })
-                .catch((error) => {
-                    console.log("Database error > " + JSON.stringify(error));
-                });
-        }
-    });
-}
-//Publicaciones
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                mostrarPublicaciones()
+                currentUser = firebase.auth().currentUser
+                firebase.database().ref(`users/${currentUser.uid}`)
+                    .once('value')
+                    .then((user) => {
+                        fullProfile = user.val()
+                        $('.displayName').html(`${fullProfile.displayName}`)
+                        $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
+
+                    })
+                    .catch((error) => {
+                        console.log("Database error > " + JSON.stringify(error));
+                    });
+            }
+        });
+    }
+    //Publicaciones
 publicar = () => {
     let comments = document.getElementById('comment').value;
     if (comments == '') {
@@ -69,7 +69,7 @@ mostrarPublicaciones = () => {
            <h6>${profileUserPost.rol}</h6>
          </div>
      </div> `
-          if (post.val().imageUrl != undefined) {
+                if (post.val().imageUrl != undefined) {
                     contentPublicaciones.innerHTML += ` 
     <div class="row postImageDiv">
         <div class="col">
@@ -77,7 +77,7 @@ mostrarPublicaciones = () => {
         </div> 
     </div> `
                 }
-            contentPublicaciones.innerHTML += ` 
+                contentPublicaciones.innerHTML += ` 
     <div class="row">   
         <div class="col" id="cont">
             <textarea id="post${post.key}" class="col-12 col-md-12" style="height: ${post.val().contenido.length}px" disabled>${post.val().contenido}</textarea>
@@ -104,22 +104,22 @@ mostrarPublicaciones = () => {
                     let deleteIcon = document.getElementById(deleteIconId)
                     console.log(deleteIcon)
                     deleteIcon.style.display = 'none';
-                }  
+                }
             })
             .catch((error) => {
                 console.log("Database error > " + JSON.stringify(error));
             });
-       
+
     })
 
 }
 editPost = (keyPost) => {
-   let inputId= 'post' + keyPost
-   let input = document.getElementById(inputId)
-   console.log(input)
+    let inputId = 'post' + keyPost
+    let input = document.getElementById(inputId)
+    console.log(input)
     input.disabled = false;
     //inputId.style.backgroundColor = '#e0e0e6';
-    input.addEventListener("change", function () {
+    input.addEventListener("change", function() {
         firebase.database().ref(`posts/${keyPost}`).update({ contenido: input.value });
     });
 }
@@ -128,7 +128,7 @@ deletePost = (keyPost) => {
     if (confirmar == true) {
         firebase.database().ref(`posts/${keyPost}`).remove()
         mostrarPublicaciones()
-    }   
+    }
 }
 let likes = 0;
 like = (keyPost) => {
