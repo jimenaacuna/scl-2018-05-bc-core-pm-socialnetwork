@@ -4,10 +4,11 @@ window.onload = () => {
         if (user) {
             currentUser = firebase.auth().currentUser.uid
             showMessagesReceived()
-            firebase.database().ref(`users/${currentUser.uid}`)
+            firebase.database().ref(`users/${currentUser}`)
                 .once('value')
                 .then((user) => {
                     fullProfile = user.val()
+                    console.log(currentUser)
                     $('.displayName').html(`${fullProfile.displayName}`)
                     $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
                 })

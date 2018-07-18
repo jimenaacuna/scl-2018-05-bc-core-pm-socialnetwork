@@ -27,8 +27,8 @@ showUsers = () => {
         .limitToLast(10)
         .on('child_added', (newUser) => {
             usersContainer.innerHTML += `
-                <div class="row">
-                <div class="col-10 profile mx-auto id='users'">
+                <div class="row" id='users'>
+                <div class="col-12 col-md-10 profile">
                 <img class="profile-photo-list" src="${newUser.val().photoUrl}">
                 </img>
                 <div class="row">
@@ -37,10 +37,11 @@ showUsers = () => {
                 <div class="row">
                 <span>${newUser.val().rol}</span>
                 </div>
-                <div class="row">
-                <a href="profile.html?user=${newUser.key}">Ver perfil</a>
                 </div>
-                <button class="btn-primary inline  green-one" onclick="addFriends('${newUser.key}', '${newUser.val().email}')">Agregar a mis amigos</button>
+                <div class="row">
+                <div class="col" id="btn-add">
+                <a href="profile.html?user=${newUser.key}" id='btn-perfil'><i class="fas fa-user"></i> Ver perfil</a>
+                <button class="btn-primary inline" onclick="addFriends('${newUser.key}', '${newUser.val().email}')"><i class="fas fa-user-plus"></i> Agregar</button>
                 </div>
                 </div>
             `;
