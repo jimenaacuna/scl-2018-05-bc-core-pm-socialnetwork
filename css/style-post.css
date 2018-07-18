@@ -34,7 +34,7 @@ header .logo {
 }
 
 header .logo img {
-    height: 40px;
+    height: 30px;
 }
 
 header div #profile {
@@ -296,7 +296,7 @@ main .publicacion div #publicar {
         z-index: 100;
         left: 0;
         top: 0;
-        background: rgba(0, 0, 0, .85);
+        background: rgba(130, 180, 63, .8);
         height: 100vh;
         margin: 0;
         padding: 0;
