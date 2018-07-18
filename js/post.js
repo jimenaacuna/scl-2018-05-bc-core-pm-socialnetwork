@@ -2,24 +2,25 @@
 let currentUser = '';
 let fullProfile = '';
 window.onload = () => {
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                currentUser = firebase.auth().currentUser
-                firebase.database().ref(`users/${currentUser.uid}`)
-                    .once('value')
-                    .then((user) => {
-                        fullProfile = user.val()
-                        $('.displayName').html(`Bienvenid@: <b> ${fullProfile.displayName} </b>`)
-                        $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
-                        mostrarPublicaciones()
-                    })
-                    .catch((error) => {
-                        console.log("Database error > " + JSON.stringify(error));
-                    });
-            }
-        });
-    }
-    //Publicaciones
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            mostrarPublicaciones()
+            currentUser = firebase.auth().currentUser
+            firebase.database().ref(`users/${currentUser.uid}`)
+                .once('value')
+                .then((user) => {
+                    fullProfile = user.val()
+                    $('.displayName').html(`Bienvenid@: <b> ${fullProfile.displayName} </b>`)
+                    $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
+                    
+                })
+                .catch((error) => {
+                    console.log("Database error > " + JSON.stringify(error));
+                });
+        }
+    });
+}
+//Publicaciones
 publicar = () => {
     let comments = document.getElementById('comment').value;
     if (comments == '') {
@@ -48,24 +49,6 @@ publicar = () => {
         }
     }
 }
-editPost = (keyPost) => {
-    inputContentPost.disabled = false;
-    inputContentPost.style.backgroundColor = '#e0e0e6';
-    inputContentPost.addEventListener("change", function() {
-        firebase.database().ref(`posts/${keyPost}`).update({ contenido: inputContentPost.value });
-    });
-}
-deletePost = (keyPost) => {
-    firebase.database().ref(`posts/${keyPost}`).remove()
-    mostrarPublicaciones()
-}
-let likes = 0;
-like = (keyPost) => {
-    console.log('me gust')
-    likes++;
-    firebase.database().ref(`posts/${keyPost}`).update({ likes: likes });
-    mostrarPublicaciones()
-}
 mostrarPublicaciones = () => {
     console.log(fullProfile)
     contentPublicaciones.innerHTML = ''
@@ -75,59 +58,82 @@ mostrarPublicaciones = () => {
         firebase.database().ref(`users/${userKeyPost}`)
             .once('value')
             .then((user) => {
-
                 profileUserPost = user.val()
-
-                console.log('este es despues' + profileUserPost)
                 contentPublicaciones.innerHTML += `
-  <div class="contentPost">
-     <div class="row">
+     <div class="row postTop" >
          <div class="col-auto foto">
            <a href="" class="commentName mr-0"><img class="profile-comment" width="30" src="${profileUserPost.photoUrl}"></a>
          </div>
          <div class="col-9">
-           <h4 style="display: inline">${profileUserPost.displayName}</h4>
-           <h6 style="display: inline">${profileUserPost.rol}</h6>
+           <h4>${profileUserPost.displayName}</h4>
+           <h6>${profileUserPost.rol}</h6>
          </div>
-    </div>
-    <div class="row">
-    <div class="col">
-      <div class="post">
-      <img class="img-post" src="${post.val().imageUrl}">
-          <div class="col" id="cont">
-              <input id="inputContentPost" value="${post.val().contenido}" disabled>
-          </div>
-          <div class="caja-botones d-flex justify-content-between align-items-center">
+     </div> `
+          if (post.val().imageUrl != undefined) {
+                    contentPublicaciones.innerHTML += ` 
+    <div class="row postImageDiv">
+        <div class="col">
+             <img class="img-post" src="${post.val().imageUrl}">
+        </div> 
+    </div> `
+                }
+            contentPublicaciones.innerHTML += ` 
+    <div class="row">   
+        <div class="col" id="cont">
+            <textarea id="post${post.key}" class="col-12 col-md-12" style="height: ${post.val().contenido.length}px" disabled>${post.val().contenido}</textarea>
+         <div class="caja-botones d-flex justify-content-between align-items-center">
           <span>${post.val().time}</span>
-          <i class="fas fa-thumbs-up" onclick="like('${post.key}')"></i><span>${post.val().likes}</span>
-          <i class="far fa-edit" id="editPost" onclick="editPost('${post.key}')"></i>
-          <i class="far fa-trash-alt" onclick="deletePost('${post.key}')"></i>
-          </div>
-      </div>
-      </div>
-</div>
-</div>
+          <span><i class="fas fa-thumbs-up iconPost" onclick="like('${post.key}')"></i>  ${post.val().likes}</span>
+          <i class="far fa-edit iconPost" id="edit${post.key}" onclick="editPost('${post.key}')"></i>
+          <i class="far fa-trash-alt iconPost" id="delete${post.key}" onclick="deletePost('${post.key}')"></i>
+        </div>
+        </div>
+    </div>
+    <div class="row"> 
+     <div class="col">
+       
+        </div>
+    </div>
   `;
+                if (userKeyPost != currentUser.uid) {
+                    let editIconId = 'edit' + post.key
+                    let editIcon = document.getElementById(editIconId)
+                    editIcon.style.display = 'none';
+
+                    let deleteIconId = 'delete' + post.key
+                    let deleteIcon = document.getElementById(deleteIconId)
+                    console.log(deleteIcon)
+                    deleteIcon.style.display = 'none';
+                }  
             })
             .catch((error) => {
                 console.log("Database error > " + JSON.stringify(error));
             });
+       
     })
 
 }
-
-//Enviar foto
-function sendPhoto() {
-    const photoValue = photoArea.value;
-
-    const newPhotoKey = firebase.database().ref().child(`photoComment`).push().key;
-    firebase.database().ref(`posts/${newPhotoKey}`).update({ contenido: photoValue })
-
-    const newGifKey = firebase.database().ref().child('gifs').push().key;
-    const currentUser = firebase.auth().currentUser;
-
-    firebase.database().ref(`gifs/${newGifKey}`).set({
-        gifURL: gifValue,
-        creatorName: fullProfile.displayName,
+editPost = (keyPost) => {
+   let inputId= 'post' + keyPost
+   let input = document.getElementById(inputId)
+   console.log(input)
+    input.disabled = false;
+    //inputId.style.backgroundColor = '#e0e0e6';
+    input.addEventListener("change", function () {
+        firebase.database().ref(`posts/${keyPost}`).update({ contenido: input.value });
     });
+}
+deletePost = (keyPost) => {
+    let confirmar = confirm("Estas seguro");
+    if (confirmar == true) {
+        firebase.database().ref(`posts/${keyPost}`).remove()
+        mostrarPublicaciones()
+    }   
+}
+let likes = 0;
+like = (keyPost) => {
+    console.log('me gust')
+    likes++;
+    firebase.database().ref(`posts/${keyPost}`).update({ likes: likes });
+    mostrarPublicaciones()
 }
