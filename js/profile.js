@@ -10,7 +10,7 @@ window.onload = () => {
                 .once('value')
                 .then((user) => {
                     fullProfile = user.val()
-                    $('.displayName').html(`Bienvenid@: <b> ${fullProfile.displayName} </b>`)
+                    $('.displayName').html(`${fullProfile.displayName} </b>`)
                     $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
                     mostrarPublicaciones()
                 })
@@ -66,4 +66,5 @@ sendMessage = () => {
 
     const newMsnReceivedKey = firebase.database().ref().child(`users/${userKey}/messages-received/${currentUser.uid}/`).push().key;
     firebase.database().ref(`users/${userKey}/messages-received/${currentUser.uid}/${newMsnReceivedKey}`).update({ remitente: currentUser.displayName, mensaje: messageText.value });
+
 }

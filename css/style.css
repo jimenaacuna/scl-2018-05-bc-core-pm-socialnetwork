@@ -6,9 +6,17 @@
     display: inline-block;
 }
 
-input {
+.infoProfile {
     border: none;
-    background: #eceaea;
+    background: none;
+    color: gainsboro;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+input #country {
+    padding-left: 10px;
+    margin-left: 8px;
 }
 
 #message {
@@ -23,23 +31,17 @@ input {
 }
 
 .profile-photo {
-    background: #ffff;
-    border: 2px solid #e7e6e6;
+    border-radius: 100%;
     padding: 5px;
 }
 
 .profile-data {
-    background: #eceaea;
+    background: #5d5c5c;
     padding: 10px;
     margin: 5px;
-}
-
-.profile {
-    background-color: #f6fffa;
-    margin-bottom: 5px;
-    padding: 15px;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
 
 .green-one {
@@ -60,7 +62,30 @@ input {
     text-align: center
 }
 
-.fa-edit {
-    color: #918a8a;
+
+/* iconos */
+
+main div .profile-icon i {
+    color: #83b43f;
+}
+
+#enabledRol {
     float: right;
+}
+
+#enabledRol:hover {
+    background: #c7c8ca;
+}
+
+#enabledCountry {
+    float: right;
+}
+
+#enabledCountry:hover {
+    background: #c7c8ca;
+}
+
+#userName {
+    font-weight: bold;
+    font-size: 20px;
 }

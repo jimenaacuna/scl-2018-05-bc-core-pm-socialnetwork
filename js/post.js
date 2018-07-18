@@ -9,7 +9,7 @@ window.onload = () => {
                     .once('value')
                     .then((user) => {
                         fullProfile = user.val()
-                        $('.displayName').html(`Bienvenid@: <b> ${fullProfile.displayName} </b>`)
+                        $('.displayName').html(`${fullProfile.displayName} </b>`)
                         $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
                         mostrarPublicaciones()
                     })
@@ -114,20 +114,4 @@ mostrarPublicaciones = () => {
             });
     })
 
-}
-
-//Enviar foto
-function sendPhoto() {
-    const photoValue = photoArea.value;
-
-    const newPhotoKey = firebase.database().ref().child(`photoComment`).push().key;
-    firebase.database().ref(`posts/${newPhotoKey}`).update({ contenido: photoValue })
-
-    const newGifKey = firebase.database().ref().child('gifs').push().key;
-    const currentUser = firebase.auth().currentUser;
-
-    firebase.database().ref(`gifs/${newGifKey}`).set({
-        gifURL: gifValue,
-        creatorName: fullProfile.displayName,
-    });
 }

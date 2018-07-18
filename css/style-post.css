@@ -4,10 +4,6 @@ body {
     font-size: 16px;
 }
 
-header span {
-    color: #005D2F;
-}
-
 
 /*-- Header --*/
 
@@ -15,16 +11,28 @@ header {
     background: #fff;
     padding: 8px 0;
     font-size: 16px;
-    font-family: 'Goudy Bookletter 1911', sans-serif;
 }
 
-#title {
+header span {
+    color: #5c5c5c;
+    font-weight: bold;
+}
+
+header #title {
     font-size: 20px;
 }
 
+header .logo {
+    text-align: left;
+}
+
 header .logo img {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+}
+
+header div #profile {
+    padding-top: 10px;
+    text-align: right;
 }
 
 header .profile a {
@@ -34,7 +42,7 @@ header .profile a {
 
 /*-- Información perfil --*/
 
-nav .imgProfile {
+div .imgProfile {
     border-radius: 3px 0px 3px 0px;
 }
 
@@ -61,8 +69,8 @@ main .barra-lateral-izquierda nav {
 main .barra-lateral-izquierda nav a {
     display: block;
     padding: 2px;
-    font-family: 'Roboto', sans-serif;
-    color: black;
+    /*font-family: 'Roboto', sans-serif;*/
+    color: #000;
 }
 
 main .barra-lateral-izquierda nav a:hover {
@@ -106,8 +114,9 @@ main .contenido-principal .publicar form textarea {
     padding: 15px;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
-    color: #565656;
+    color: #3d3c3c;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 35);
+    border-radius: 6px;
 }
 
 main .contenido-principal .publicar form .contenedor-botones {
@@ -129,15 +138,15 @@ main .contenido-principal .publicar form button {
     border: 1px solid #fff;
     padding: 5px 30px;
     font-size: 14px;
-    font-family: 'Signika Negative', sans-serif;
-    background: linear-gradient(to bottom, #005d2f, #50c068d5 100%);
+    font-family: 'Roboto', sans-serif;
+    background: #82b43f;
     color: #fff;
     border-radius: 3px;
     cursor: pointer;
 }
 
 main .contenido-principal .publicar form button:hover {
-    background: linear-gradient(to bottom, #50c068d5 #005d2f 100%);
+    background: #3d3c3c;
 }
 
 
@@ -303,12 +312,6 @@ main .publicacion div #publicar {
     margin-bottom: 5px
 }
 
-input {
-    border: none;
-    background: none;
-    width: 100%
-}
-
 .inputfile {
     width: 0.1px;
     height: 0.1px;
@@ -319,18 +322,17 @@ input {
 }
 
 .inputfile+label {
-    font-size: 1.25em;
-    font-weight: 700;
     color: white;
-    background-color: #0e9c0e;
+    background-color: #82bd3f;
     display: inline-block;
-    padding: 10px;
+    padding: 3px 7px;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 .inputfile:focus+label,
 .inputfile+label:hover {
-    background-color: #e67e29;
+    background-color: #3d3c3c;
 }
 
 .inputfile:focus+label {

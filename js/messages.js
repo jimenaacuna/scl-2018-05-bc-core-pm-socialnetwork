@@ -8,7 +8,7 @@ window.onload = () => {
                 .once('value')
                 .then((user) => {
                     fullProfile = user.val()
-                    $('.displayName').html(`Bienvenid@: <b> ${fullProfile.displayName} </b>`)
+                    $('.displayName').html(`${fullProfile.displayName} </b>`)
                     $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
                     mostrarPublicaciones()
                 })
