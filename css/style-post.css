@@ -118,7 +118,7 @@ main .contenido-principal .publicar form textarea {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     color: #565656;
-    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 35);
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 35);
 }
 
 main .contenido-principal .publicar form .contenedor-botones {
@@ -162,13 +162,17 @@ main .contenido-principal .publicar form button:hover {
 main .publicacion div #cont span {
     margin-left: 1em;
 }
-
+main .publicacion div #cont textarea{
+    max-height: 180px;
+    min-height: 50px;
+    background: none;
+    border: none;
+}
 main .publicacion div #cont {
     padding: 1em 0.5em;
-    /*margin-bottom: 2em;
-    outline: 0.1em solid #E5E3F2;*/
+   border-bottom-right-radius: 0.4em;
+   border-bottom-left-radius: 0.4em;
     background-color: #FFF;
-    border-radius: 0.4em;
     margin: 0 auto;
     margin-bottom: 20px;
     color: #4E4D53;
@@ -308,18 +312,21 @@ main .publicacion div #publicar {
     } */
 }
 
-.contentPost {
-    background: #cde8bf;
-    padding: 10px;
-    margin-bottom: 5px
+.postTop {
+   background: #fff;
+   border-top-right-radius: 0.4em;
+   border-top-left-radius: 0.4em;
+   padding-top: 20px;
 }
 
 input {
     border: none;
     background: none;
-    width: 100%
+    width: 100%;
+        padding-left: 10px;
+        margin-bottom: 20px;
+        width: 100%;
 }
-
 .inputfile {
     width: 0.1px;
     height: 0.1px;
@@ -351,4 +358,14 @@ input {
 
 .img-post {
     width: 100%
+}
+.postImageDiv{
+    background-color: #fff;
+}
+.iconPost{
+color:#82b43f;
+}
+.iconPost:hover {
+    color: #005d2f;
+    cursor: pointer;
 }

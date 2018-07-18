@@ -67,6 +67,16 @@ input {
     float: right;
 }
 
+.msn {
+    padding: 1em 0.5em;
+    background-color: #FFF;
+    border-radius: 0.8em;
+    margin: 6 auto;
+    margin-bottom: 20px;
+    margin-top: 1em;
+    color: #4E4D53;
+    text-align: left;
+}
 /* login */
 
 .logo img{

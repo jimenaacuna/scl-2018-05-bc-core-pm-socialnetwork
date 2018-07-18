@@ -58,12 +58,20 @@ enabledCountry.addEventListener("click", function() {
     country.disabled = false;
 });
 sendMessage = () => {
+    msnOk.style.display= 'block';
     let params = new URLSearchParams(document.location.search.substring(1));
-    let userKey = params.get("user");
+    let userKey = params.get("user"); 
+    firebase.database().ref(`users/${userKey}`) //ref es la ruta para llegar a los datos
+        .once('value')
+        .then((user) => {
+            const newMsnSendKey = firebase.database().ref().child(`users/${currentUser.uid}/messages-send/${userKey}/`).push().key;
+            firebase.database().ref(`users/${currentUser.uid}/messages-send/${userKey}/${newMsnSendKey}`).update({ destino: user.val().displayName, mensaje: messageText.value });
 
-    const newMsnSendKey = firebase.database().ref().child(`users/${currentUser.uid}/messages-send/${userKey}/`).push().key;
-    firebase.database().ref(`users/${currentUser.uid}/messages-send/${userKey}/${newMsnSendKey}`).update({ destino: userKey, mensaje: messageText.value });
-
+        })
+        .catch((error) => {
+            console.log("Database error > " + JSON.stringify(error));
+        });
+   
     const newMsnReceivedKey = firebase.database().ref().child(`users/${userKey}/messages-received/${currentUser.uid}/`).push().key;
     firebase.database().ref(`users/${userKey}/messages-received/${currentUser.uid}/${newMsnReceivedKey}`).update({ remitente: currentUser.displayName, mensaje: messageText.value });
 }
