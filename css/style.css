@@ -50,7 +50,7 @@ input {
 }
 
 .green-two {
-    background-color: #C6DCA7;
+    background-color: #405132;
     border: none;
 }
 
@@ -93,6 +93,18 @@ input {
     color: #82B43F;
     
 }
-
-
-
+.botones{
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        color: #fff;
+       
+        line-height: 1.5;
+        border-radius: .25rem;
+}
+.botones:hover{
+ cursor: pointer;
+}
