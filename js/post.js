@@ -53,7 +53,7 @@ mostrarPublicaciones = () => {
     console.log(fullProfile)
     contentPublicaciones.innerHTML = ''
     let profileUserPost = ''
-    firebase.database().ref(`posts`).limitToLast(15).orderByChild("time").on('child_added', (post) => {
+    firebase.database().ref(`posts`).orderByChild("time").on('child_added', (post) => {
         let userKeyPost = post.val().userUid
         firebase.database().ref(`users/${userKeyPost}`)
             .once('value')
