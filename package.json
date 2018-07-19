@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "proyecto laboratoria",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "chai": "^4.1.2"
+  },
   "devDependencies": {
     "mocha": "^5.2.0"
   },
