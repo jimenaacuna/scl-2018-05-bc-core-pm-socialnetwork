@@ -1,4 +1,4 @@
-global.assert = require('chai').assert;
+//global.assert = require('chai').assert;
 
 require('../js/auth');
 require('../js/post');

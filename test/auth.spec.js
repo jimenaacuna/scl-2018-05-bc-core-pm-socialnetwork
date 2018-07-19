@@ -6,7 +6,6 @@ describe('auth', () => {
     it('debería exponer función sortUsers en objeto global', () => {
         assert.isFunction(facebookLoginwithFireBase);
     });
-
 });
 
 describe('publicar', () => {
