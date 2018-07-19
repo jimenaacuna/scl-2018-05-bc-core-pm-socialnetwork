@@ -134,4 +134,4 @@ like = (keyPost) => {
     mostrarPublicaciones()
 }
 
-module.exports = publicar;
+module.export = publicar;
