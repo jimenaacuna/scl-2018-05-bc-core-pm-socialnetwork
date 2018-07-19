@@ -2,6 +2,16 @@
     margin: 3% 0;
 }
 
+#logoIndex {
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+.center {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
 .inline {
     display: inline-block;
 }
@@ -49,10 +59,6 @@ input #country {
     width: 100%
 }
 
-.center {
-    text-align: center
-}
-
 
 /* iconos */
 
@@ -76,7 +82,7 @@ main div .profile-icon i {
 }
 
 
-/* login */
+/* ====== login ======= */
 
 
 /* .logo img {
@@ -93,7 +99,7 @@ main div .profile-icon i {
 }
 
 
-/*Perfil  */
+/* ===== Perfil ==== */
 
 .infoProfile {
     border: none;
@@ -135,16 +141,28 @@ main div .profile-icon i {
     font-size: 20px;
 }
 
+.users-box {
+    background: #fff;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+}
 
-/*Pagina de Usuarios */
+
+/* ==== Pagina de Usuarios ==== */
+
+.profile {
+    margin-top: 15px;
+}
 
 .btn-users {
-    border: 1px solid #fff;
+    margin-right: 8px;
+    /* border: 1px solid #fff;
     padding: 5px 30px;
     font-size: 14px;
-    background: #82b43f;
-    color: #fff;
-    border-radius: 3px;
+    background: #c7c8ca;
+    color: #000;
+    border-radius: 3px; */
     cursor: pointer;
 }
 
@@ -152,31 +170,50 @@ main div .profile-icon i {
     background: #3d3c3c;
 }
 
+a:not([href]):not([tabindex]) {
+    color: #FFF;
+}
+
+#btn-add {
+    margin-left: 100px;
+}
+
 .btn-user {
     justify-content: center;
     margin-bottom: 15px;
 }
 
-#btn-add {
-    margin-top: 10px;
-}
-
-#btn-perfil {
-    color: white;
-    background: #0270e6;
-    padding: 3.2px;
-    padding-left: 10.1px;
-    border-color: #0270e6;
-    margin-left: 10px;
-    -webkit-appearance: button;
-    padding-right: 10px;
-    text-decoration: none;
-}
-
 #users {
     margin: 10px;
-    background: #fff;
+    background: rgba(130, 180, 63, .09);
     padding-top: 8px;
-    padding-bottom: 20px;
-    border-radius: 6px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+}
+
+.user-name {
+    font-weight: bold;
+    padding-top: 15px;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.user-rol {
+    color: rgb(55, 92, 6);
+    font-weight: 500;
+    font-weight: 400;
+}
+
+
+/* ==== Imagenes Lateral ==== */
+
+.images img {
+    margin-bottom: 15px;
+    display: inline-block;
+    width: 100%;
+}
+
+#title-imagenes {
+    text-align: center;
+    font-size: 15px;
 }
