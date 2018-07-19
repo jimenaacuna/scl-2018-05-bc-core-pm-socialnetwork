@@ -66,6 +66,7 @@ main {
 main .barra-lateral-izquierda {
     padding-bottom: 10px;
     padding-left: 4px;
+    background: rgba(130, 180, 63, .09)
 }
 
 main .barra-lateral-izquierda nav {
@@ -75,13 +76,13 @@ main .barra-lateral-izquierda nav {
 
 main .barra-lateral-izquierda nav a {
     display: block;
-    padding: 2px;
-    /*font-family: 'Roboto', sans-serif;*/
+    margin-bottom: 20px;
     color: #000;
+    font-size: 16.9px;
 }
 
 main .barra-lateral-izquierda nav a:hover {
-    background: #f2f2f2;
+    background: #a6c480;
     text-decoration: none;
 }
 
@@ -250,7 +251,7 @@ main .publicacion .post .caja-botones button {
 }
 
 main .publicacion .post .caja-botones button:hover {
-    background: #50c068d5;
+    background: #fff;
 }
 
 main .publicacion div #publicar {
@@ -274,7 +275,7 @@ main .publicacion div #publicar {
     }
     main .btn-menu:hover {
         text-decoration: none;
-        background: #005d2f;
+        background: #719640;
     }
     main .fondo-enlace {
         position: fixed;
@@ -310,13 +311,14 @@ main .publicacion div #publicar {
         border-bottom: none;
     }
     main .barra-lateral-izquierda nav a {
-        padding: 15px;
-        color: white;
+        padding-left: 8px;
+        margin-top: 10px;
+        color: #fff;
     }
-    /* main .barra-lateral-izquierda nav a:hover {
+    main .barra-lateral-izquierda nav a:hover {
         color: #3d3c3c;
         background: white;
-    } */
+    }
 }
 
 .postTop {
