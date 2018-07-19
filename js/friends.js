@@ -27,8 +27,8 @@ showUsers = () => {
         .limitToLast(10)
         .on('child_added', (newUser) => {
             usersContainer.innerHTML += `
-                <div class="row users-box">
-                <div class="col-10 profile">
+                <div class="row" id='users'>
+                <div class="col-12 col-md-10 profile">
                 <img class="profile-photo-list" src="${newUser.val().photoUrl}">
                 </img>
                 <div class="row">
