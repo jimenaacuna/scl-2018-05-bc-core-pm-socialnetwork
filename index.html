@@ -19,7 +19,9 @@
             <!-- Div general -->
             <div class="col-10 col-md-5 mx-auto">
                 <div class="col-12 center">
+
                     <div class="logo" id="logoIndex">
+
                         <img src="img/logo.png" width="100%" alt="">
                     </div>
                 </div>
@@ -36,16 +38,16 @@
                             <button type="submit" id="btnLogin" class="btn btn-primary inline  full  green-one" onclick="loginWithFirebase()">Log in</button>
                         </div>
                         <div class="col-6">
-                            <button class="botones inline  full green-one " onclick="registerWithFirebase()">Registrarse</button>
+                            <button class="btn btn-primary inline full green-one" onclick="registerWithFirebase()">Registrarse</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button class="botones inline pd full green-two" onclick="facebookLoginwithFireBase()">
+                            <button class="btn btn-primary inline pd full green-two" onclick="facebookLoginwithFireBase()">
                                 <i class="fab fa-facebook-f"></i> Sign in facebook</button>
                         </div>
                         <div class="col-12">
-                            <button class="botones inline pd full green-two" onclick="googleLoginwithFireBase()">
+                            <button class="btn btn-primary inline pd full green-two" onclick="googleLoginwithFireBase()">
                                 <i class="fab fa-google"></i> Sign in google</button>
                         </div>
                     </div>
@@ -63,6 +65,15 @@
     <!--Script-->
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="js/auth.js"></script>
+    <script>
+        window.onload = () => {
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    redirectFromLogin()
+                }
+            });
+        }
+    </script>
 
 </body>
 
