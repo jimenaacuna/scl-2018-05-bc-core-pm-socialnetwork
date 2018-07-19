@@ -32,6 +32,7 @@ showMessagesReceived = () => {
                          <div class="msn">
                     <h5>${message.val().remitente}</h5>
                     <p>${message.val().mensaje}</p>
+                    <span>${message.val().time}</span>
                     </div>`
                 })
         })
@@ -50,6 +51,7 @@ showMessagesSend = () => {
                     <div class="msn">
                     <h5>${message.val().destino}</h5>
                     <p>${message.val().mensaje}</p>
+                    <span>${message.val().time}</span>
                     </div>`
                 })
         })
