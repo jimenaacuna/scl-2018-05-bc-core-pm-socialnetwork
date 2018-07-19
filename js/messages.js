@@ -10,7 +10,7 @@ window.onload = () => {
                     fullProfile = user.val()
                     console.log(currentUser)
                     $('.displayName').html(`${fullProfile.displayName}`)
-                    $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
+                    $('.imagen').html(`<img class="" width="30" src="${fullProfile.photoUrl}">`)
                 })
                 .catch((error) => {
                     console.log("Database error > " + JSON.stringify(error));

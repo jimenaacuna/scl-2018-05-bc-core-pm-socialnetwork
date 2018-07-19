@@ -11,7 +11,7 @@ window.onload = () => {
                 .then((user) => {
                     fullProfile = user.val()
                     $('.displayName').html(`${fullProfile.displayName}`)
-                    $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
+                    $('.imagen').html(`<img class="" width="30" src="${fullProfile.photoUrl}">`)
                     mostrarPublicaciones()
                 })
                 .catch((error) => {

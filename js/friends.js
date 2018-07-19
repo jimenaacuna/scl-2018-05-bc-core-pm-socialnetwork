@@ -11,7 +11,7 @@ window.onload = () => {
                 .then((user) => {
                     fullProfile = user.val()
                     $('.displayName').html(`${fullProfile.displayName} </b>`)
-                    $('.imagen').html(`<img class="profile" width="30" src="${fullProfile.photoUrl}">`)
+                    $('.imagen').html(`<img class="" width="30" src="${fullProfile.photoUrl}">`)
                     mostrarPublicaciones()
                 })
                 .catch((error) => {
@@ -32,16 +32,17 @@ showUsers = () => {
                 <img class="profile-photo-list" src="${newUser.val().photoUrl}">
                 </img>
                 <div class="row">
-                <span>${newUser.val().displayName}</span>
+                <span class="user-name">${newUser.val().displayName}</span>
                 </div>
                 <div class="row">
-                <span>${newUser.val().rol}</span>
+                <span class="user-rol">${newUser.val().rol}</span>
                 </div>
                 </div>
                 <div class="row">
                 <div class="col" id="btn-add">
-                <a href="profile.html?user=${newUser.key}" id='btn-perfil'><i class="fas fa-user"></i> Ver perfil</a>
-                <button class="btn-primary inline" onclick="addFriends('${newUser.key}', '${newUser.val().email}')"><i class="fas fa-user-plus"></i> Agregar</button>
+                <a "href="profile.html?user=${newUser.key}" class="btn btn-primary btn-perfil"><i class="fas fa-user"></i> Ver perfil</a>
+                <button class="btn btn-primary" onclick="addFriends('${newUser.key}', '${newUser.val().email}')"><i class="fas fa-user-plus"></i> Agregar</button>
+                </div>
                 </div>
                 </div>
             `;
@@ -61,20 +62,22 @@ showFriends = () => {
                 .once('value')
                 .then((user) => {
                     usersContainer.innerHTML += `
-                <div class="row ">
-                <div class="col-10 profile mx-auto">
+                <div class="row users-box">
+                <div class="col-10 profile">
                 <img class="profile-photo-list" src="${user.val().photoUrl}">
                 </img>
                 <div class="row">
-                <span>${user.val().displayName}</span>
+                <span class="user-name">${user.val().displayName}</span>
                 </div>
                 <div class="row">
-                <span>${user.val().rol}</span>
+                <span class="user-rol">${user.val().rol}</span>
+                </div>
                 </div>
                 <div class="row">
-                <a href="profile.html?user=${user.key}">Ver perfil</a>
+                <div class="col" id="btn-add">
+                <a href="profile.html?user=${user.key}" class="btn btn-primary btn-perfil"><i class="fas fa-user"></i> Ver perfil</a>
+                <button class="btn btn-primary" onclick="deleteFriend('${user.key}')"><i class="fas fa-user-times"></i> Eliminar</button>
                 </div>
-                <button class="btn-primary inline green-one" onclick="deleteFriend('${user.key}')">Eliminar</button>
                 </div>
                 </div>
             `;
