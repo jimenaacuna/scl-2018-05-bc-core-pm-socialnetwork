@@ -1,28 +1,28 @@
 {
-  "name": "scl-2018-05-bc-core-pm-socialnetwork",
-  "version": "1.0.0",
-  "description": "proyecto laboratoria",
-  "main": "index.js",
-  "dependencies": {
-    "chai": "^4.1.2"
-  },
-  "devDependencies": {
-    "mocha": "^5.2.0"
-  },
-  "scripts": {
-    "test": "npm run test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Estephanyc/scl-2018-05-bc-core-pm-socialnetwork.git"
-  },
-  "keywords": [
-    "proyecto"
-  ],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Estephanyc/scl-2018-05-bc-core-pm-socialnetwork/issues"
-  },
-  "homepage": "https://github.com/Estephanyc/scl-2018-05-bc-core-pm-socialnetwork#readme"
+    "name": "scl-2018-05-bc-core-pm-socialnetwork",
+    "version": "1.0.0",
+    "description": "proyecto laboratoria",
+    "main": "index.js",
+    "dependencies": {
+        "chai": "^4.1.2"
+    },
+    "devDependencies": {
+        "mocha": "^5.2.0"
+    },
+    "scripts": {
+        "test": "npm run test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Estephanyc/scl-2018-05-bc-core-pm-socialnetwork.git"
+    },
+    "keywords": [
+        "proyecto"
+    ],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Estephanyc/scl-2018-05-bc-core-pm-socialnetwork/issues"
+    },
+    "homepage": "https://github.com/Estephanyc/scl-2018-05-bc-core-pm-socialnetwork#readme"
 }

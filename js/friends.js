@@ -27,8 +27,8 @@ showUsers = () => {
         .limitToLast(10)
         .on('child_added', (newUser) => {
             usersContainer.innerHTML += `
-                <div class="row" id='users'>
-                <div class="col-12 col-md-10 profile">
+                <div class="row users-box">
+                <div class="col-10 profile">
                 <img class="profile-photo-list" src="${newUser.val().photoUrl}">
                 </img>
                 <div class="row">
@@ -40,7 +40,7 @@ showUsers = () => {
                 </div>
                 <div class="row">
                 <div class="col" id="btn-add">
-                <a "href="profile.html?user=${newUser.key}" class="btn btn-primary btn-perfil"><i class="fas fa-user"></i> Ver perfil</a>
+                <a href="profile.html?user=${newUser.key}" class="btn btn-primary btn-perfil"><i class="fas fa-user"></i> Ver perfil</a>
                 <button class="btn btn-primary" onclick="addFriends('${newUser.key}', '${newUser.val().email}')"><i class="fas fa-user-plus"></i> Agregar</button>
                 </div>
                 </div>

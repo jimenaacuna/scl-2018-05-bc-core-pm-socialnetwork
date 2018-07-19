@@ -129,7 +129,9 @@ like = (keyPost) => {
     let postRef = firebase.database().ref(`posts/${keyPost}`)
     postRef.once('value').then((post) => {
         let postLikes = (post.val().likes) + 1
-        postRef.update({ likes: postLikes});
-        })
+        postRef.update({ likes: postLikes });
+    })
     mostrarPublicaciones()
 }
+
+module.export = publicar;
