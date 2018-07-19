@@ -166,9 +166,10 @@ main div .profile-icon i {
     cursor: pointer;
 }
 
-.btn-users:hover {
+
+/* .btn-users:hover {
     background: #3d3c3c;
-}
+} */
 
 a:not([href]):not([tabindex]) {
     color: #FFF;

@@ -66,7 +66,7 @@ sendMessage = () => {
         .once('value')
         .then((user) => {
             const newMsnSendKey = firebase.database().ref().child(`users/${currentUser.uid}/messages-send/${userKey}/`).push().key;
-            firebase.database().ref(`users/${currentUser.uid}/messages-send/${userKey}/${newMsnSendKey}`).update({ destino: user.val().displayName, mensaje: messageText.value, time: time});
+            firebase.database().ref(`users/${currentUser.uid}/messages-send/${userKey}/${newMsnSendKey}`).update({ destino: user.val().displayName, mensaje: messageText.value, time: time });
 
         })
         .catch((error) => {
@@ -74,6 +74,6 @@ sendMessage = () => {
         });
 
     const newMsnReceivedKey = firebase.database().ref().child(`users/${userKey}/messages-received/${currentUser.uid}/`).push().key;
-    firebase.database().ref(`users/${userKey}/messages-received/${currentUser.uid}/${newMsnReceivedKey}`).update({ remitente: currentUser.displayName, mensaje: messageText.value, time: time});
+    firebase.database().ref(`users/${userKey}/messages-received/${currentUser.uid}/${newMsnReceivedKey}`).update({ remitente: currentUser.displayName, mensaje: messageText.value, time: time });
 
 }
