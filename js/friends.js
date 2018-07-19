@@ -40,7 +40,7 @@ showUsers = () => {
                 </div>
                 <div class="row">
                 <div class="col" id="btn-add">
-                <a "href="profile.html?user=${newUser.key}" class="btn btn-primary btn-perfil"><i class="fas fa-user"></i> Ver perfil</a>
+                <a href="profile.html?user=${newUser.key}" class="btn btn-primary btn-perfil"><i class="fas fa-user"></i> Ver perfil</a>
                 <button class="btn btn-primary" onclick="addFriends('${newUser.key}', '${newUser.val().email}')"><i class="fas fa-user-plus"></i> Agregar</button>
                 </div>
                 </div>

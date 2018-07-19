@@ -7,5 +7,10 @@ describe('auth', () => {
         assert.isFunction(facebookLoginwithFireBase);
     });
 
-
 });
+
+describe('publicar', () => {
+    it('debería existir datos que no sean NULL or UNDEFINED', () => {
+        assert.exists(publicar, 'publicar is neither `null` nor `undefined`');
+    });
+})
