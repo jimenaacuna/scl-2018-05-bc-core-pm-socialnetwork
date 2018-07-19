@@ -39,12 +39,12 @@ publicar = () => {
                     urlPhoto = url
                     console.log('URL del archivo > ' + url);
                     const newPost2Key = firebase.database().ref().child(`posts`).push().key;
-                    firebase.database().ref(`posts/${newPost2Key}`).update({ contenido: comments, likes: '0', user: currentUser.displayName, userUid: currentUser.uid, time: time, imageUrl: url });
+                    firebase.database().ref(`posts/${newPost2Key}`).update({ contenido: comments, likes: 0, user: currentUser.displayName, userUid: currentUser.uid, time: time, imageUrl: url });
                 });
             document.getElementById('comment').value = '';
         } else {
             const newPost2Key = firebase.database().ref().child(`posts`).push().key;
-            firebase.database().ref(`posts/${newPost2Key}`).update({ contenido: comments, likes: '0', user: currentUser.displayName, userUid: currentUser.uid, time: time });
+            firebase.database().ref(`posts/${newPost2Key}`).update({ contenido: comments, likes: 0, user: currentUser.displayName, userUid: currentUser.uid, time: time });
             document.getElementById('comment').value = '';
         }
     }
@@ -102,23 +102,18 @@ mostrarPublicaciones = () => {
 
                     let deleteIconId = 'delete' + post.key
                     let deleteIcon = document.getElementById(deleteIconId)
-                    console.log(deleteIcon)
                     deleteIcon.style.display = 'none';
                 }
             })
             .catch((error) => {
                 console.log("Database error > " + JSON.stringify(error));
             });
-
     })
-
 }
 editPost = (keyPost) => {
     let inputId = 'post' + keyPost
     let input = document.getElementById(inputId)
-    console.log(input)
     input.disabled = false;
-    //inputId.style.backgroundColor = '#e0e0e6';
     input.addEventListener("change", function() {
         firebase.database().ref(`posts/${keyPost}`).update({ contenido: input.value });
     });
@@ -130,10 +125,11 @@ deletePost = (keyPost) => {
         mostrarPublicaciones()
     }
 }
-let likes = 0;
 like = (keyPost) => {
-    console.log('me gust')
-    likes++;
-    firebase.database().ref(`posts/${keyPost}`).update({ likes: likes });
+    let postRef = firebase.database().ref(`posts/${keyPost}`)
+    postRef.once('value').then((post) => {
+        let postLikes = (post.val().likes) + 1
+        postRef.update({ likes: postLikes});
+        })
     mostrarPublicaciones()
 }
